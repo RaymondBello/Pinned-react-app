@@ -16,6 +16,14 @@ import * as firebase from "firebase";
 
 firebase.initializeApp(firebaseConfig);
 
+function storeHighScore(userId, score) {
+  firebase.database().ref('users/' + userId).set({
+    highscore: score
+  });
+}
+
+
+
 const Drawer = createDrawerNavigator();
 
 function App() {
