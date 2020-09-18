@@ -14,14 +14,15 @@ import * as Animatable from "react-native-animatable";
 import { firebaseConfig } from "./firebase.config";
 import * as firebase from "firebase";
 
-firebase.initializeApp(firebaseConfig);
+
+const config = firebase.initializeApp(firebaseConfig);
+
 
 function storeHighScore(userId, score) {
   firebase.database().ref('users/' + userId).set({
     highscore: score
   });
 }
-
 
 
 const Drawer = createDrawerNavigator();
@@ -81,6 +82,15 @@ function App() {
 
         const userToken = String(foundUser[0].userToken);
         const userName = foundUser[0].username;
+        
+        // const userToken = String(foundUser.userToken);
+        // const email = String(foundUser.email);
+        // const password = String(foundUser.password);
+        // const errorMessage = "";
+
+        // const auth_view = firebase.auth().signInWithEmailAndPassword(email, password).catch(error => console.log(error));
+
+        // console.log("firebase", auth_view);
 
         try {
           // userToken = "dhsdsh";
@@ -89,7 +99,7 @@ function App() {
           console.error(e);
         }
 
-        console.log("user token:", userToken);
+        console.log("user token and username:", userToken, userName);
         dispatch({ type: "LOGIN", id: userName, token: userToken });
       },
       signOut: async () => {

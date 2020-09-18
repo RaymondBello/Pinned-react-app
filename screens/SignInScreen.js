@@ -25,6 +25,7 @@ const SignInScreen = ({ navigation }) => {
   const [data, setData] = React.useState({
     username: "",
     password: "",
+    errorMessage: "",
     check_textInputChange: false,
     secureTextEntry: true,
     isValidUser: true,
@@ -89,9 +90,23 @@ const SignInScreen = ({ navigation }) => {
   };
 
   const loginHandle = (userName, password) => {
+
+   
+
+    // const Users = {
+    //   id: "", 
+    //   username: userName, 
+    //   password: password, 
+    //   email: userName,
+    //   userToken: '121'
+    // }
+
     const foundUser = Users.filter(item => {  
-      return userName==item.username && password==item.password
+      console.log("Username: "+userName+" Password: "+password);
+      // return userName==item.username && password==item.password
+      return userName && password
     });
+    
 
     if (data.username.length == 0||data.password.length==0) {
       Alert.alert("Wrong Input", "Username or Password cannot be empty", [{ text: "Okay" }]);

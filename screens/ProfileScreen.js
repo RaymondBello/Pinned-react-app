@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 function ProfileScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center",backgroundColor: "#5B5E6A" }}>
       <Text>This is the profile screen</Text>
       <Button
         title="Go to profile screen again"

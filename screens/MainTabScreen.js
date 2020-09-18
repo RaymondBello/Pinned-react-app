@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import * as Animatable from "react-native-animatable";
 
 import ExploreScreen from "./ExploreScreen";
 import HomeScreen from "./HomeScreen";
@@ -50,7 +51,7 @@ const HomeStackScreen = ({ navigation }) => (
       name="Home"
       component={HomeScreen}
       options={{
-        title: "Home Page",
+        title:"Home",
         headerLeft: MenuIcon(navigation),
       }}
     />
@@ -62,7 +63,7 @@ const ProfileStackScreen = ({ navigation }) => (
     initialRouteName="Home"
     screenOptions={screenColors()}
   >
-    <ProfileStack.Screen
+    <ProfileStack.Screen 
       name="Profile"
       component={ProfileScreen}
       options={{
@@ -79,7 +80,7 @@ const ChatStackScreen = ({ navigation }) => (
       name="Chat"
       component={ChatScreen}
       options={{
-        title: "Chat Page",
+        title: "Chat",
         headerLeft: MenuIcon(navigation),
       }}
     />
@@ -103,11 +104,14 @@ const ExploreStackScreen = ({ navigation }) => (
 );
 
 const MainTabScreen = () => (
+
+
   <Tab.Navigator
     initialRouteName="Home"
-    activeColor="#d6e0f0"
+    activeColor="white"
     inactiveColor="#8d93ab"
-  >
+    >
+      
     <Tab.Screen
       name="Home"
       component={HomeStackScreen}
